@@ -3,6 +3,7 @@
 namespace App;
 
 use Exception;
+use App\Middleware\Middleware;
 
     class Router{
         protected $routes = [
@@ -14,12 +15,12 @@ use Exception;
         //     $this->routes = $routes;
         // }
 
-        public function get($uri, $controller){
+        public function get($uri, $controller, $middleware = null){
             $this->routes['GET'][$uri] = $controller;
         }
 
 
-        public function post($uri, $controller){
+        public function post($uri, $controller, $middleware = null){
             $this->routes['POST'][$uri] = $controller;
         }
 
@@ -36,7 +37,6 @@ use Exception;
             //dd(...explode('@', $this->routes[$method][$uri]));
 
             //explode('@', $this->routes[$method][$uri]);
-
             if (array_key_exists($uri, $this->routes[$method])) {
                 return $this->callMethod(...explode('@', $this->routes[$method][$uri]));
                 //return $this->routes[$method][$uri];

@@ -15,6 +15,10 @@ class PostsController{
     }
 
     public function index(){
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            return view("login");
+        }
         $posts = (new Post) -> allPost('posts');
         //dd($posts);
         return view("posts", ['posts'=>$posts]);

@@ -16,7 +16,7 @@
 
             <!-- Add content here -->
             <div>
-                Total Posts: 2
+                Welcome to Post Management
             </div>
         </div>
     </div>

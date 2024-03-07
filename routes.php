@@ -6,6 +6,13 @@
 // ]);
 // $router->get('crudpdo', "controllers/index.php");
 // $router->post('crudpdo/test', "controllers/test.php");
+$router->get('crudpdo/register', 'UserController@registerpage');
+$router->post('crudpdo/register/post', 'UserController@register');
+
+$router->get('crudpdo/login', 'UserController@loginpage');
+$router->post('crudpdo/login/post', 'UserController@login');
+
+$router->get('crudpdo/logout', 'UserController@logout');
 
 $router->get('crudpdo', 'DashboardController@index');
 // $router->get('crudpdo/posts','DashboardController@allPosts');
